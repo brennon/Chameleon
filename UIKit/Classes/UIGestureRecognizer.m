@@ -46,31 +46,31 @@
     } _delegateHas;
 }
 
-- (id)initWithTarget:(id)target action:(SEL)action
-{
-    if ((self=[super init])) {
-        _state = UIGestureRecognizerStatePossible;
-        _cancelsTouchesInView = YES;
-        _delaysTouchesBegan = NO;
-        _delaysTouchesEnded = YES;
-        _enabled = YES;
-
-        _registeredActions = [[NSMutableArray alloc] initWithCapacity:1];
-        _trackingTouches = [[NSMutableArray alloc] initWithCapacity:1];
-        
-        [self addTarget:target action:action];
-    }
-    return self;
-}
-
-- (void)_setView:(UIView *)v
-{
-    if (v != _view) {
-        [self reset]; // not sure about this, but I think it makes sense
-        _view = v;
-    }
-}
-
+//- (id)initWithTarget:(id)target action:(SEL)action
+//{
+//    if ((self=[super init])) {
+//        _state = UIGestureRecognizerStatePossible;
+//        _cancelsTouchesInView = YES;
+//        _delaysTouchesBegan = NO;
+//        _delaysTouchesEnded = YES;
+//        _enabled = YES;
+//
+//        _registeredActions = [[NSMutableArray alloc] initWithCapacity:1];
+//        _trackingTouches = [[NSMutableArray alloc] initWithCapacity:1];
+//        
+//        [self addTarget:target action:action];
+//    }
+//    return self;
+//}
+//
+//- (void)_setView:(UIView *)v
+//{
+//    if (v != _view) {
+//        [self reset]; // not sure about this, but I think it makes sense
+//        _view = v;
+//    }
+//}
+//
 - (void)setDelegate:(id<UIGestureRecognizerDelegate>)aDelegate
 {
     if (aDelegate != _delegate) {
@@ -81,24 +81,24 @@
     }
 }
 
-- (void)addTarget:(id)target action:(SEL)action
-{
-    NSAssert(target != nil, @"target must not be nil");
-    NSAssert(action != NULL, @"action must not be NULL");
-    
-    UIAction *actionRecord = [[UIAction alloc] init];
-    actionRecord.target = target;
-    actionRecord.action = action;
-    [_registeredActions addObject:actionRecord];
-}
-
-- (void)removeTarget:(id)target action:(SEL)action
-{
-    UIAction *actionRecord = [[UIAction alloc] init];
-    actionRecord.target = target;
-    actionRecord.action = action;
-    [_registeredActions removeObject:actionRecord];
-}
+//- (void)addTarget:(id)target action:(SEL)action
+//{
+//    NSAssert(target != nil, @"target must not be nil");
+//    NSAssert(action != NULL, @"action must not be NULL");
+//    
+//    UIAction *actionRecord = [[UIAction alloc] init];
+//    actionRecord.target = target;
+//    actionRecord.action = action;
+//    [_registeredActions addObject:actionRecord];
+//}
+//
+//- (void)removeTarget:(id)target action:(SEL)action
+//{
+//    UIAction *actionRecord = [[UIAction alloc] init];
+//    actionRecord.target = target;
+//    actionRecord.action = action;
+//    [_registeredActions removeObject:actionRecord];
+//}
 
 - (void)requireGestureRecognizerToFail:(UIGestureRecognizer *)otherGestureRecognizer
 {
@@ -193,16 +193,16 @@
     }
 }
 
-- (void)reset
-{
-    // note - this is also supposed to ignore any currently tracked touches
-    // the touches themselves may not have gone away, so we don't just remove them from tracking, I think,
-    // but instead just mark them as ignored by this gesture until the touches eventually end themselves.
-    // in any case, this isn't implemented right now because we only have a single touch and so far I
-    // haven't needed it.
-    
-    _state = UIGestureRecognizerStatePossible;
-}
+//- (void)reset
+//{
+//    // note - this is also supposed to ignore any currently tracked touches
+//    // the touches themselves may not have gone away, so we don't just remove them from tracking, I think,
+//    // but instead just mark them as ignored by this gesture until the touches eventually end themselves.
+//    // in any case, this isn't implemented right now because we only have a single touch and so far I
+//    // haven't needed it.
+//    
+//    _state = UIGestureRecognizerStatePossible;
+//}
 
 - (BOOL)canPreventGestureRecognizer:(UIGestureRecognizer *)preventedGestureRecognizer
 {
