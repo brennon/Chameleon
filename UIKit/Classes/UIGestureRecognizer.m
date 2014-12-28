@@ -103,12 +103,12 @@
 - (void)requireGestureRecognizerToFail:(UIGestureRecognizer *)otherGestureRecognizer
 {
 }
-
-- (NSUInteger)numberOfTouches
-{
-    return [_trackingTouches count];
-}
-
+//
+//- (NSUInteger)numberOfTouches
+//{
+//    return [_trackingTouches count];
+//}
+//
 - (CGPoint)locationInView:(UIView *)view
 {
     // by default, this should compute the centroid of all the involved points
@@ -234,15 +234,15 @@
 {
 }
 
-- (void)_beginTrackingTouch:(UITouch *)touch withEvent:(UITouchEvent *)event
-{
-    if (self.enabled) {
-        if (!_delegateHas.shouldReceiveTouch || [_delegate gestureRecognizer:self shouldReceiveTouch:touch]) {
-            [touch _addGestureRecognizer:self];
-            [_trackingTouches addObject:touch];
-        }
-    }
-}
+//- (void)_beginTrackingTouch:(UITouch *)touch withEvent:(UITouchEvent *)event
+//{
+//    if (self.enabled) {
+//        if (!_delegateHas.shouldReceiveTouch || [_delegate gestureRecognizer:self shouldReceiveTouch:touch]) {
+//            [touch _addGestureRecognizer:self];
+//            [_trackingTouches addObject:touch];
+//        }
+//    }
+//}
 
 - (void)_continueTrackingWithEvent:(UITouchEvent *)event
 {

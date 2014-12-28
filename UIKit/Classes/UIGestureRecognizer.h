@@ -57,13 +57,13 @@ typedef NS_ENUM(NSInteger, UIGestureRecognizerState) {
 - (void)requireGestureRecognizerToFail:(UIGestureRecognizer *)otherGestureRecognizer;
 - (CGPoint)locationInView:(UIView *)view;
 
-- (NSUInteger)numberOfTouches;
+//- (NSUInteger)numberOfTouches;
 
 @property (nonatomic, assign) id<UIGestureRecognizerDelegate> delegate;
-@property (nonatomic) BOOL delaysTouchesBegan;
-@property (nonatomic) BOOL delaysTouchesEnded;
-@property (nonatomic) BOOL cancelsTouchesInView;
-@property (nonatomic, getter=isEnabled) BOOL enabled;
-@property (nonatomic, readonly) UIGestureRecognizerState state;
+//@property (nonatomic) BOOL delaysTouchesBegan;
+//@property (nonatomic) BOOL delaysTouchesEnded;
+//@property (nonatomic) BOOL cancelsTouchesInView;
+//@property (nonatomic, getter=isEnabled) BOOL enabled;
+//@property (nonatomic, readonly) UIGestureRecognizerState state;
 @property (nonatomic, readonly) UIView *view;
 @end
